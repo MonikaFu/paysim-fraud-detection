@@ -17,6 +17,7 @@ if not destination_raw_data.exists():
     raw_dir = Path("data/raw")
     raw_dir.mkdir(parents=True, exist_ok=True)
 
+    # Assume the filename encoutered when starting the project
     source = Path(cache_path) / "PS_20174392719_1491204439457_log.csv"
 
     if not source.exists():
@@ -25,6 +26,7 @@ if not destination_raw_data.exists():
             "The Kaggle dataset structure may have changed."
         )
 
+    # change the filename to something more readable
     shutil.copy2(source, destination_raw_data)
 
     t2 = time.perf_counter()
